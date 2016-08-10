@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+          <h2>CREATE YOUR RESTAURANT</h2>
+            <div class="card_1">
+              <%= form_for(@restaurants) do |f| %>
+                <%= f.label :name %><br>
+                <%= f.text_area :name %><br><br>
+                <%= f.label :address %><br>
+                <%= f.text_area :address %><br><br>
+                 <%= f.label :category %><br>
+                <%= f.text_area :category %><br><br>
+                <%= f.label :description %><br>
+                <%= f.text_area :description %><br><br>
+                <%= f.label :image_url %><br>
+                <%= f.text_area :image_url %><br><br>
+                <%= f.submit %><br><br><br>
+              <% end %>
+              <%= link_to "Back to Menu", "/restaurants", :class => "btn btn-info" %>
+            </div>
+        </div>
+   </div>
+</div>

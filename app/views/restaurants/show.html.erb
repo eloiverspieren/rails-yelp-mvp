@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <h2>HERE IS YOUR RESTAURANT</h2>
+        <div class="card_1 text-center">
+          <p><%= @restaurants.name %></p>
+          <p><%= @restaurants.address %></p>
+          <p><%= @restaurants.category %></p>
+          <p><%= @restaurants.description %></p>
+        </div>
+        <P>Reviews</P>
+        <% @restaurants.reviews.each do |review| %>
+        <div class="card_1">
+          <p><%= review.content %></p>
+          <p><%= review.rating %></p>
+        </div>
+        <% end %>
+        <%= link_to "New Review", "/restaurants/#{@restaurants.id}/reviews/new", :class => "btn btn-success" %>
+        <%= link_to "Back to Menu", "/restaurants", :class => "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+
+
+
+

@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20160810094723) do
     t.string   "address"
     t.string   "phone_number"
     t.string   "category"
+    t.string   "description"
+    t.string   "image_url"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -24,8 +26,10 @@ ActiveRecord::Schema.define(version: 20160810094723) do
   create_table "reviews", force: :cascade do |t|
     t.text     "content"
     t.integer  "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "restaurant_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
   end
 
 end

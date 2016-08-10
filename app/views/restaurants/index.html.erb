@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://hd.unsplash.com/photo-1469307580733-007134b82100');">
+  <div class="banner-content">
+    <h1>TIME TO EAT</h1>
+    <p>Best restaurants around your place.</p>
+    <%= link_to "Create a new restaurant", "/restaurants/new", :class => "btn btn-info" %>
+  </div>
+</div>
+
+
+<div class="wrapper-grey padded">
+  <div class="container">
+    <h2>Restaurants</h2><br><br>
+    <div class="row">
+      <% @restaurants.each do |r| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: url('<%= r.image_url %>');">
+          <div class="card-category"><%= r.name %></div>
+          <div class="card-description">
+          <%= link_to "Info", "/restaurants/#{r.id}", :class => "btn btn-success" %>
+          <%= link_to "Edit", "/restaurants/#{r.id}/edit", :class => "btn btn-warning" %>
+          <%= link_to "Delete", "/restaurants/#{r.id}", method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
+         </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-4">
+            <ul class="list-inline">
+              <li><%= link_to "", "", class: "fa fa-youtube" %></li>
+              <li><%= link_to "", "", class: "fa fa-instagram" %></li>
+              <li><%= link_to "", "", class: "fa fa-facebook" %></li>
+              <li><%= link_to "", "", class: "fa fa-twitter" %></li>
+            </ul>
+          </div>
+          <div class="col-xs-8 text-right">
+            <p>This is a Time to Eat challenge @ LeWagon</p>
+          </div>
+        </div>
+      </div>
+    </div>
